@@ -1,5 +1,5 @@
-// Wrap everything in DOMContentLoaded to ensure HTML is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
+// Wrap everything in DOMContentLoaded using function keyword
+document.addEventListener("DOMContentLoaded", function() {
 
     // Form Selection
     const form = document.getElementById("registration-form");
@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const feedbackDiv = document.getElementById("form-feedback");
 
     // Form Submission Event Listener
-    form.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent default submission
+    form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
 
         // Retrieve User Inputs
         const username = document.getElementById("username").value.trim();
@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Feedback Display Logic
-        feedbackDiv.style.display = "block"; // Make visible
+        feedbackDiv.style.display = "block"; // Make feedback visible
         if (isValid) {
             feedbackDiv.textContent = "Registration successful!";
             feedbackDiv.style.color = "#28a745"; // Green for success
         } else {
-            feedbackDiv.innerHTML = messages.join("<br>"); // Show errors
+            feedbackDiv.innerHTML = messages.join("<br>"); // Show error messages
             feedbackDiv.style.color = "#dc3545"; // Red for errors
         }
     });
